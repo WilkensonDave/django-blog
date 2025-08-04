@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blogApp/styles.css' %}">
+{% endblock %}
+
+{% block body %}
+        {% if messages %}
+        <div class="messsages">
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <center><h4 style="color:red">{{message}}</h4></center>
+            {% else %}
+            <center><h4 style="color: green">{{message}}</h4></center>
+            {% endif %}
+        {% endfor %}
+        </div>
+        {% endif %}
+    <div class="login-form">
+        <h1>Login</h1>
+        <form method="POST" action="{% url 'loginView' %}?next={{ request.GET.next }}">
+            {% csrf_token %}
+            <div class="login-fields">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div class="login-fields">
+                <label for="passworrd">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <button class="login-btn" type="submit">Login</button>
+
+            <div class="signup-link">
+                <p>Not a member? <a href="{% url 'registerView' %}">Register</a></p>
+                <p>Forgot Your Password? <a href="{% url 'forget-password' %}">Reset Password</a></p>
+            </div>
+        </form>
+    </div>
+{% endblock %}

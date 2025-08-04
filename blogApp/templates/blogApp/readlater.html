@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blogApp/styles.css" %}">
+<link rel="stylesheet" href="{% static 'blogApp/media.css'%}">
+{% endblock %}
+
+
+{% block body %}
+<section id="has_post_list">
+    {%if has_posts %}
+    <h2>Posts saved to real later.</h2>
+        <ul>
+            {% for post in  posts %}
+            <li><a href="{% url 'post_details'  post.slug %}">{{post.title}}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>No post has been added yet.</h2>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blogApp/styles.css' %}">
+{% endblock %}
+
+{% block  body  %}
+
+    <div class="edit-comment">
+        <h1>Edit Your comment.</h1>
+        <form  method="POST">
+                {% csrf_token %}
+                {% for form in forms %}
+                <div>
+                    {% comment %} {{form.label_tag}} {% endcomment %}
+                    {{ form }}
+                    {% comment %} {{form.errors}} {% endcomment %}
+                </div>
+                {% endfor %}
+                <button class="comment-btn">Edit Comment</button>
+        </form>
+    </div>
+{% endblock %}

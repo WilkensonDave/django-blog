@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blogApp/styles.css" %}">
+<link rel="stylesheet" href="{% static 'blogApp/media.css'%}">
+{% endblock %}
+
+
+{% block body %}
+    <div class="profile-container">
+        <form method="POST">
+            {% csrf_token %}
+            <h2>Account Info</h2>
+            <div class="profile-form ">
+                {% for form in user_form %}
+                    {{form.label}}
+                    {{ form }}
+                {% endfor %}
+            </div>
+            <div class="profile-form">
+                {% for form in profile_form %}  
+                    {{form.label}}
+                    {{ form }}
+                {% endfor %}
+            </div>
+            <button class="btn-profile">Save</button>
+        </form>
+    </div>
+{% endblock %}

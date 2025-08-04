@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blogApp/styles.css' %}">
+<link rel="stylesheet" href="{% static 'blogApp/media.css'%}">
+{% endblock %}
+
+
+{% block body %}
+    <section class="post-header-section">
+        <div class="post-header">
+            <h1>{{ post.title }}</h1>
+            <p class="author-display">Witten by: <span class="author">{{post.author_short}} </span>on {{post.date}}</p>
+            <form action="{% url 'readlater' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="post_id" value="{{ post.id}}">
+                <button class="btn-readlater">ReadLater</button>
+            </form>
+            
+        </div>
+    </section>
+
+    <section class="post-content-section">
+        <div class="post-content-details">
+            <img src="{{post.image.url}}" 
+            alt="{{post.title|slice:':25'}}...image" class="post-details-image">
+            <h2>{{post.excerpt}}</h2>
+            <p>{{post.content|linebreaks}}</p>
+        </div>
+    </section>
+
+    {% if messages %}
+        <div class="messsages">
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <center><h4 style="color:red">{{message}}</h4></center>
+            {% else %}
+            <center><h4 style="color: green">{{message}}</h4></center>
+            {% endif %}
+        {% endfor %}
+        </div>
+        {% endif %}
+
+    <section>
+        <div class="all-comments">
+            
+            {% if comments %}
+            <h2>Recent comments</h2>
+            <ul>
+                {% for comment in comments %}
+                <div class="edit_comment">
+                    <li><p>{{comment.comment}} 
+                        <a href="{% url 'edit_comment' pk=comment.id %}">Edit</a>/
+                        <a href="{% url 'delete_comment' comment.id  %}">Delete</a></p> </li>
+                    <li><h3><span class="poster">Posted by</span>: 
+                        {{comment.user.username}} on {{comment.created_at}} </h3></li>
+                </div>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <h2>No comment has been added yet.</h2>
+            {% endif %}
+         </div>
+    </section>
+
+    <section class="comment-section">
+        <div class="comment-container">
+            <h3>Enjoy this post? Leave a comment below.</h3>
+            <form action="{% url "post_details" post.slug %}" method="POST">
+                {% csrf_token %}
+                {% for form in comment_form %}
+                <div>
+                    {% comment %} {{form.label_tag}} {% endcomment %}
+                    {{ form }}
+                    {{form.errors}}
+                </div>
+                {% endfor %}
+                <button class="comment-btn">Save Comment</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

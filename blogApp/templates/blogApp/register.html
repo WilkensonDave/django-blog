@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blogApp/styles.css' %}">
+{% endblock %}
+
+{% block title %}
+    Register Page
+{% endblock %}
+
+
+{%block body %}
+    
+        {% if messages %}
+        <div class="messsages">
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <center><h4 style="color:red">{{message}}</h4></center>
+            {% else %}
+            <center><h4 style="color: green">{{message}}</h4></center>
+            {% endif %}
+        {% endfor %}
+        </div>
+        {% endif %}
+    
+    
+    <div class="register-form">
+        <h1>Register</h1>
+        <form  method="POST" class="signup-form">
+            {% csrf_token %}
+            <div class="text-field">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="first_name">
+            </div>
+            <div class="text-field">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="text-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="text-field">
+                <label for="password" > password</label>
+                <input type="password" 
+                name="password" id="password" required>
+            </div>
+            <div class="text-field">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password"
+                name="confirm_password" id="confirm_password"  required>
+            </div>
+            <button type="submit" class="btn-signup">Sign up</button>
+        </form>
+
+        <div class="login-back-div">
+            <p>Already have an account? <a href="{% url 'loginView' %}">Login</a></p>
+        </div>
+    </div>
+{% endblock %}

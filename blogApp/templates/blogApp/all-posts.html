@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blogApp/styles.css' %}">
+<link rel="stylesheet" href="{% static 'blogApp/media.css'%}">
+{% endblock %}
+
+{% block title %}
+    All posts
+{% endblock %}
+
+{% block body %}
+    <section class="post-header-section">
+        <div class="post-header">
+             <span class="username"> Hi {{user.username}},</span>  
+            <h1 class="all-posts-h1">Welcome to our main blog posts.</h1>
+            <p>Let's take your tech career to the next level. Happy reading!</p>
+        </div>
+    </section>
+
+    <section class="all_posts">
+        <div class="all_posts-contents">
+            {%for post in all_posts %}
+            <div class="post-container">
+                <article class="all_posts-article">
+                    <a href="{% url 'post_details' post.slug %}">
+                        <img src="{{post.image.url}}" 
+                        alt="{{ post.title|slice:':20' }}...-image" class="post-image">
+                        <h2>{{post.title}}</h2>
+                        <p>{{post.excerpt}}</p>
+                    </a>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

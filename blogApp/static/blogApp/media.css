@@ -1,0 +1,229 @@
+
+
+/* @media screen and (max-width:500px){
+    .nav-menu{
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+        align-items: center;
+        padding: 10px 12.5px;
+        margin: 0 auto;
+        background-color: red;
+    }
+} */
+
+
+@media (max-width: 68.75rem){
+    .all_posts-contents{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .first-section-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .first-section-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 57.5rem){
+    .all_posts-contents{
+        grid-template-columns: 1fr 1fr;
+    }
+    .first-section-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+
+
+@media (max-width:44rem){
+    .container{
+        grid-template-columns: 1fr 1fr;
+        padding: 0 4rem;
+        row-gap: 3rem;
+    }
+
+    /* .container p{
+        font-size: 16px;
+    } */
+
+    .container h1{
+        font-size: 20px;
+        line-height: 1.2;
+    }
+
+    .post{
+        padding-top: 1.2rem;
+        height: auto;
+    }
+
+     .post, .post-p{
+        font-size: 1.5rem;
+        font-family: Arial, Helvetica, sans-serif;
+        padding-bottom: 1.2rem;
+    }
+
+    .first-section-container{
+        grid-template-columns: 1fr 1fr;
+        padding: 2rem 1rem;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .post, .post-h3{
+       font-size: 18px;
+       padding-bottom: 0.75rem;
+    }
+
+    .home-first-section h2{
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    /* .hero-image{
+        height: 80%;
+    } */
+
+    
+
+    .post-header h1{
+        font-size: 21px;
+        margin-top: 12px;
+    }
+    .username{
+        font-size: 14px;
+        font-style: italic;
+    }
+    .post-header{
+        height: auto;
+    }
+    .post-header p{
+        font-size: 16px;
+    }
+
+    .all_posts-contents{
+        grid-template-columns: 1fr;
+    }
+
+
+    /* .post-container{
+        max-width: fit-content;
+    } */
+
+    .post-container img{
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .post-header h1{
+        font-size: 22px;
+    }
+
+    .author-display{
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        line-height: 1.2;
+    }
+
+    .post-content-details img{
+        max-width: 100%;
+        object-fit: cover;
+        height: auto;
+    }
+    .post-content-details h2{
+        font-size: 20px;
+    }
+    .post-content-details p{
+        font-size: 17px;
+    }
+
+    .all-comments{
+        max-width: 400px;
+    }
+
+    .all-comments h2{
+    font-size: 21px;
+    }
+
+    .all-comments p{
+        display: flex;
+        flex-direction: column;
+        padding: 12px;
+    }
+    .comment-container h3{
+        font-size: 22px;
+    }
+
+    
+}
+
+
+@media (max-width:34rem){
+    .hero-section{
+        padding: 2.4rem 0 6.4rem 0;
+    }
+    .container{
+        grid-template-columns: 1fr;
+        padding: 0 3.2rem;
+        row-gap: 3.2rem;
+    }
+
+    .post-container h2{
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    /* .hero-image{
+        height: 80%;
+    } */
+    .first-section-container{
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+    .hero-div-content{
+        margin: 0 auto;
+    }
+
+    .home-first-section{
+        margin-top: 2rem;
+    }
+
+    
+    .hero-image img{
+        max-width: 100%;
+        height: auto;
+        
+    }
+    .comment-container{
+        padding: 0.5rem;
+    }
+    .comment-container h3{
+        font-size: 18px;
+    }
+
+    .profile-form{
+        font-size: 18px;
+    }
+    .comment-btn{
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 15px;
+    }
+    #has_post_list h2{
+        font-size: 19px;
+    }
+    .profile-container h2{
+        font-size: 18px;
+    }
+
+} 
+
+
