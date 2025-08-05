@@ -5,9 +5,25 @@ This is a fully functional and responsive  blog application built with Django, H
 
 In this project users can view blog Posts, leave comments/edit and delete them, create profile and explore a clean UI.
 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
+<img width="1536" height="742" alt="image" src="https://github.com/user-attachments/assets/4ee71e36-01e7-42fc-921d-0419c09db6c0" />
+
+
+
+
+
+
+
+<img width="577" height="675" alt="image" src="https://github.com/user-attachments/assets/eac8d7d2-77d2-4ae2-bc50-62831fcd9bf0" />
+
+
+
+
+
+
+
+
+
+<img width="258" height="668" alt="image" src="https://github.com/user-attachments/assets/12c1526f-dbc4-43a2-8f55-8a92d14a2e86" />
 
 
 
